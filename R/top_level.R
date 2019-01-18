@@ -17,11 +17,22 @@
 #' @param verbose print information as fitting progresses?
 #' @param parallel fit models in parallel?
 #' @param cores number of processes used for parallel computation. if NULL detect.cores() used
-#' @param save_each_fitsave each model as it is produced, in a time-stamped directory (safer)
+#' @param save_each_fit save each model as it is produced, in a time-stamped directory (safer)
 #'
-#' @description This function generate a mixture of lognormal, gamma, and weibull distributions
+#' @description This function fits mixture models with components, using every combination of the
+#'              selected distributions
+#'              of size G. enerates a mixture of lognormal, gamma, and weibull distributions
 #'
 #' @details Blostein Martina and Miljkovic Tatjana (2019). On On modeling left-truncated loss data using mixtures of distributions. Insurance: Mathematics and Economics. DOI:10.1016/j.insmatheco.2018.12.001
+#'
+#' @examples
+#' x <- secura$Loss
+#'
+#' fits <- ltmmCombo(x, G = 2, trunc = 1.2e6)
+#' summary(fits)
+#'
+#' fits_GL <- ltmmCombo(x, 3, distributions = c('gamma', 'lognormal'), trunc = 1.2e6)
+#' summary(fits_GL)
 #'
 #' @return an ltmmCombo model object
 #'
@@ -146,9 +157,15 @@ ltmmCombo <- function(x, G, distributions = c("lognormal", "gamma", "weibull"), 
 #' @param max.it maximum number of iterations of EM algorithm
 #' @param verbose print information as fitting progresses?
 #'
-#' @description This function generate a mixture of lognormal, gamma, and weibull distributions
+#' @description This function generates a mixture model combining left-truncated lognormal,
+#'              gamma, and weibull distributions
+#' @examples
+#' x <- secura$Loss
 #'
-#' @details Data set x and number of components G are provided
+#' fit <- ltmm(x, G = 3, distributions = c('gamma', 'gamma', 'weibull'), trunc = 1.2e6)
+#'
+#' summary(fit)
+#' plot(fit)
 #'
 #' @return an ltmm model object
 #'
@@ -252,10 +269,10 @@ ltmm <- function(
 #' @param x data vector
 #' @param distributions densities to combine
 #' @param trunc left truncation point (optional)
-#' @param Pars initial parameter values (list of length G)
-#' @param Pi manually specified initial component proportions (for init_method=specified)
-#' @param npars Can be used to overwrite the number of free parameters (used in the calculation
-#'        of AIC & BIC), if the model has additional constraints
+#' @param Pars list of length G of parameter values
+#' @param Pi vector of length G of component proportions
+#' @param npars Can optionally be used to overwrite the number of free parameters (used in the
+#'        calculation of AIC & BIC), if the model has additional constraints
 #'
 #' @description This function is useful for omparing models produced using the ltmix package
 #'               to models fit using other, or for computing fit criteria and risk measures for
@@ -265,11 +282,6 @@ ltmm <- function(
 #'
 #' @export
 createLtmmObj <- function(x, distributions, trunc, Pars, Pi, npars = NULL) {
-
-  # . Useful for c
-
-  #
-  # constraints
 
   G <- length(Pi)
   n <- length(x)

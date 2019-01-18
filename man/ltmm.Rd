@@ -40,8 +40,15 @@ ltmm(x, G, distributions, trunc = NULL, EM_init_method = "emEM",
 an ltmm model object
 }
 \description{
-This function generate a mixture of lognormal, gamma, and weibull distributions
+This function generates a mixture model combining left-truncated lognormal,
+             gamma, and weibull distributions
 }
-\details{
-Data set x and number of components G are provided
+\examples{
+x <- secura$Loss
+
+fit <- ltmm(x, G = 3, distributions = c('gamma', 'gamma', 'weibull'), trunc = 1.2e6)
+
+summary(fit)
+plot(fit)
+
 }

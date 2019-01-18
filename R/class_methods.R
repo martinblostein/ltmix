@@ -2,6 +2,7 @@
 # ltmm and ltmmCombo.
 
 # Plot method for ltmm objects: displays histogram & fitted pdf
+#' @export
 plot.ltmm <- function(fit, bins = 40, xlim = NULL, ylim = NULL) {
   with(fit,
        {
@@ -24,19 +25,35 @@ plot.ltmm <- function(fit, bins = 40, xlim = NULL, ylim = NULL) {
 }
 
 # Summary method for ltmm objects: displays the model fitting criteria for the given model
+
+#' @export
 summary.ltmm <- function(fit) {
   cat("Model:", fit$distributions, "| BIC =", fit$bic, "| AIC =", fit$aic, "| log-likelihood =", fit$ll)
 }
 
+#' @export
+print.ltmm <- function(fit) {
+  summary(fit)
+}
+
+
 # Summary method for ltmmCombo objects: displays a list of the best models by each model fitting
 # criterion and a summary table
-summary.ltmmCombo <- function(w) {
-  cat("====", w$G, "COMPONENT COMBINATIONS OF", toupper(w$distributions), "DISTRIBUTIONS ====\n\n")
+
+#' @export
+summary.ltmmCombo <- function(combo) {
+  cat("====", combo$G, "COMPONENT COMBINATIONS OF", toupper(combo$distributions), "DISTRIBUTIONS ====\n\n")
   cat("Best model by BIC:\n")
-  with(w$best.bic.fit, cat("Model:", distributions, "| BIC =", bic, "| AIC =", aic, "| log-likelihood =", ll, "\n\n"))
+  with(combo$best.bic.fit, cat("Model:", distributions, "| BIC =", bic, "| AIC =", aic, "| log-likelihood =", ll, "\n\n"))
   cat("Best model by AIC:\n")
-  with(w$best.aic.fit, cat("Model:", distributions, "| BIC =", bic, "| AIC =", aic, "| log-likelihood =", ll, "\n\n"))
-  print(w$summary_table)
+  with(combo$best.aic.fit, cat("Model:", distributions, "| BIC =", bic, "| AIC =", aic, "| log-likelihood =", ll, "\n\n"))
+  print(combo$summary_table)
 
   invisible(NULL)
+}
+
+# print summary by default
+#' @export
+print.ltmmCombo <- function(combo) {
+  summary(combo)
 }

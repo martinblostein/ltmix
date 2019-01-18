@@ -13,12 +13,12 @@ createLtmmObj(x, distributions, trunc, Pars, Pi, npars = NULL)
 
 \item{trunc}{left truncation point (optional)}
 
-\item{Pars}{initial parameter values (list of length G)}
+\item{Pars}{list of length G of parameter values}
 
-\item{Pi}{manually specified initial component proportions (for init_method=specified)}
+\item{Pi}{vector of length G of component proportions}
 
-\item{npars}{Can be used to overwrite the number of free parameters (used in the calculation
-of AIC & BIC), if the model has additional constraints}
+\item{npars}{Can optionally be used to overwrite the number of free parameters (used in the
+calculation of AIC & BIC), if the model has additional constraints}
 }
 \value{
 an ltmm model object

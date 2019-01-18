@@ -41,14 +41,26 @@ ltmmCombo(x, G, distributions = c("lognormal", "gamma", "weibull"),
 
 \item{cores}{number of processes used for parallel computation. if NULL detect.cores() used}
 
-\item{save_each_fitsave}{each model as it is produced, in a time-stamped directory (safer)}
+\item{save_each_fit}{save each model as it is produced, in a time-stamped directory (safer)}
 }
 \value{
 an ltmmCombo model object
 }
 \description{
-This function generate a mixture of lognormal, gamma, and weibull distributions
+This function fits mixture models with components, using every combination of the
+             selected distributions
+             of size G. enerates a mixture of lognormal, gamma, and weibull distributions
 }
 \details{
 Blostein Martina and Miljkovic Tatjana (2019). On On modeling left-truncated loss data using mixtures of distributions. Insurance: Mathematics and Economics. DOI:10.1016/j.insmatheco.2018.12.001
+}
+\examples{
+x <- secura$Loss
+
+fits <- ltmmCombo(x, G = 2, trunc = 1.2e6)
+summary(fits)
+
+fits_GL <- ltmmCombo(x, 3, distributions = c('gamma', 'lognormal'), trunc = 1.2e6)
+summary(fits_GL)
+
 }
