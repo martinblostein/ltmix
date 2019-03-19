@@ -1,11 +1,11 @@
 Package: ltmix
 Type: Package
-Title: Mixing Left-Truncated Gamma, Weibull, and Lognormal Distributions
+Title: Left-Truncated Mixtures of Gamma, Weibull, and Lognormal Distributions
 Version: 0.1.0
 Author: Martin Blostein <martin.blostein@gmail.com> and Tatjana Miljkovic <miljkot@miamioh.edu>
 Maintainer: Martin Blostein <martin.blostein@gmail.com>
-Description: Left-truncated mixtures of Gamma, Weibull, and Lognormal Distributions
-License: Public
+Description: Mixture modelling of one-dimensional data using combinations of left-truncated Gamma, Weibull, and Lognormal Distributions.
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1

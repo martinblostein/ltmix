@@ -21,7 +21,7 @@ createLtmmObj(x, distributions, trunc, Pars, Pi, npars = NULL)
 calculation of AIC & BIC), if the model has additional constraints}
 }
 \value{
-an ltmm model object
+An ltmm model object
 }
 \description{
 This function is useful for omparing models produced using the ltmix package

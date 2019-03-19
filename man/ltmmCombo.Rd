@@ -44,15 +44,27 @@ ltmmCombo(x, G, distributions = c("lognormal", "gamma", "weibull"),
 \item{save_each_fit}{save each model as it is produced, in a time-stamped directory (safer)}
 }
 \value{
-an ltmmCombo model object
+An ltmmCombo model object, with the following properties:
+\describe{
+  \item{x}{Copy of the input data}
+  \item{distributions}{The selected distributions}
+  \item{combos}{List of all combinations of distributions considered}
+  \item{all.fits}{List of all ltmm fit objects}
+  \item{all.bic}{Vector of BIC values for each model}
+  \item{best.bic.fit}{The best ltmm fit by BIC}
+  \item{best.bic}{The best BIC value of all fits}
+  \item{best.bic.combo}{The combination of distributions used for the best fit by BIC}
+  \item{all.aic}{Vector of AIC value for each model}
+  \item{best.aic.fit}{The best ltmm fit by AIC}
+  \item{best.aic}{The best AIC value of all fits}
+  \item{best.aic.combo}{The combination of distributions used for the best fit by AIC}
+  \item{all.ll}{Vector of log-likelihood value for each model}
+  \item{summary_table}{Table summarizing the AIC, BIC, LL, and risk measures for each fitted model}
+}
 }
 \description{
-This function fits mixture models with components, using every combination of the
-             selected distributions
-             of size G. enerates a mixture of lognormal, gamma, and weibull distributions
-}
-\details{
-Blostein Martina and Miljkovic Tatjana (2019). On On modeling left-truncated loss data using mixtures of distributions. Insurance: Mathematics and Economics. DOI:10.1016/j.insmatheco.2018.12.001
+This function fits a family of finite mixture models using every combination of the left-truncated
+             lognormal, gamma, and weibull distributions.
 }
 \examples{
 x <- secura$Loss
@@ -63,4 +75,7 @@ summary(fits)
 fits_GL <- ltmmCombo(x, 3, distributions = c('gamma', 'lognormal'), trunc = 1.2e6)
 summary(fits_GL)
 
+}
+\references{
+Blostein, Martin & Miljkovic, Tatjana. (2019). On modeling left-truncated loss data using mixtures of distributions. Insurance Mathematics and Economics. 85. 35-46. 10.1016/j.insmatheco.2018.12.001.
 }

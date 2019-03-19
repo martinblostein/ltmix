@@ -37,7 +37,26 @@ ltmm(x, G, distributions, trunc = NULL, EM_init_method = "emEM",
 \item{verbose}{print information as fitting progresses?}
 }
 \value{
-an ltmm model object
+An ltmm model object, with the following properties:
+\describe{
+  \item{x}{Copy of the input data}
+  \item{distributions}{The selected distributions}
+  \item{trunc}{The left truncation value, if specified}
+  \item{fitted_pdf}{The probability density function of the fitted model}
+  \item{fitted_cfd}{The cumulative density function of the fitted model}
+  \item{VaR}{The value-at-risk of the fitted model (function with p taken as onl yargument)}
+  \item{ES}{The expected shortfall of the fitted model (function with p taken as onl yargument)}
+  \item{G}{The number of components in the model}
+  \item{Pi}{The estimated probabilites of component membership}
+  \item{Pars}{The estimated model parameters}
+  \item{ll}{The log-likelihood of the fitted model}
+  \item{bic}{The BIC of the fitted model}
+  \item{aic}{The AIC of the fitted model}
+  \item{id}{The MAP component membership for each observation}
+  \item{iter}{The number of iterations until convergence for the EM algorithm}
+  \item{npars}{The total number of model parameters for the fitted model}
+  \item{ll.history}{The value of log-likelihood at each iteration of the EM algorithm}
+}
 }
 \description{
 This function generates a mixture model combining left-truncated lognormal,
