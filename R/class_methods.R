@@ -3,7 +3,8 @@
 
 # Plot method for ltmm objects: displays histogram & fitted pdf
 #' @export
-plot.ltmm <- function(fit, bins = 40, xlim = NULL, ylim = NULL) {
+plot.ltmm <- function(x, bins = 40, xlim = NULL, ylim = NULL, ...) {
+  fit <- x
   with(fit,
        {
 
@@ -27,13 +28,13 @@ plot.ltmm <- function(fit, bins = 40, xlim = NULL, ylim = NULL) {
 # Summary method for ltmm objects: displays the model fitting criteria for the given model
 
 #' @export
-summary.ltmm <- function(fit) {
-  cat("Model:", fit$distributions, "| BIC =", fit$bic, "| AIC =", fit$aic, "| log-likelihood =", fit$ll)
+summary.ltmm <- function(object, ...) {
+  cat("Model:", object$distributions, "| BIC =", object$bic, "| AIC =", object$aic, "| log-likelihood =", object$ll)
 }
 
 #' @export
-print.ltmm <- function(fit) {
-  summary(fit)
+print.ltmm <- function(x, ...) {
+  summary(x)
 }
 
 
@@ -41,19 +42,19 @@ print.ltmm <- function(fit) {
 # criterion and a summary table
 
 #' @export
-summary.ltmmCombo <- function(combo) {
-  cat("====", combo$G, "COMPONENT COMBINATIONS OF", toupper(combo$distributions), "DISTRIBUTIONS ====\n\n")
+summary.ltmmCombo <- function(object, ...) {
+  cat("====", object$G, "COMPONENT COMBINATIONS OF", toupper(object$distributions), "DISTRIBUTIONS ====\n\n")
   cat("Best model by BIC:\n")
-  with(combo$best.bic.fit, cat("Model:", distributions, "| BIC =", bic, "| AIC =", aic, "| log-likelihood =", ll, "\n\n"))
+  with(object$best.bic.fit, cat("Model:", distributions, "| BIC =", bic, "| AIC =", aic, "| log-likelihood =", ll, "\n\n"))
   cat("Best model by AIC:\n")
-  with(combo$best.aic.fit, cat("Model:", distributions, "| BIC =", bic, "| AIC =", aic, "| log-likelihood =", ll, "\n\n"))
-  print(combo$summary_table)
+  with(object$best.aic.fit, cat("Model:", distributions, "| BIC =", bic, "| AIC =", aic, "| log-likelihood =", ll, "\n\n"))
+  print(object$summary_table)
 
   invisible(NULL)
 }
 
 # print summary by default
 #' @export
-print.ltmmCombo <- function(combo) {
-  summary(combo)
+print.ltmmCombo <- function(x, ...) {
+  summary(x)
 }
