@@ -69,10 +69,7 @@ This function fits a family of finite mixture models using every combination of 
 \examples{
 x <- secura$Loss
 
-fits <- ltmmCombo(x, G = 2, trunc = 1.2e6)
-summary(fits)
-
-fits_GL <- ltmmCombo(x, 3, distributions = c('gamma', 'lognormal'), trunc = 1.2e6)
+fits_GL <- ltmmCombo(x, G = 2, distributions = c('gamma', 'lognormal'), trunc = 1.2e6)
 summary(fits_GL)
 
 }

@@ -27,10 +27,7 @@
 #' @examples
 #' x <- secura$Loss
 #'
-#' fits <- ltmmCombo(x, G = 2, trunc = 1.2e6)
-#' summary(fits)
-#'
-#' fits_GL <- ltmmCombo(x, 3, distributions = c('gamma', 'lognormal'), trunc = 1.2e6)
+#' fits_GL <- ltmmCombo(x, G = 2, distributions = c('gamma', 'lognormal'), trunc = 1.2e6)
 #' summary(fits_GL)
 #'
 #' @return An ltmmCombo model object, with the following properties:
@@ -175,12 +172,14 @@ ltmmCombo <- function(x, G, distributions = c("lognormal", "gamma", "weibull"), 
 #' @description This function generates a mixture model combining left-truncated lognormal,
 #'              gamma, and weibull distributions
 #' @examples
+#' \dontrun{
 #' x <- secura$Loss
 #'
-#' fit <- ltmm(x, G = 3, distributions = c('gamma', 'gamma', 'weibull'), trunc = 1.2e6)
+#' fit <- ltmm(x, G = 2, distributions = c('gamma', 'gamma', 'weibull'), trunc = 1.2e6)
 #'
 #' summary(fit)
 #' plot(fit)
+#' }
 #'
 #' @return An ltmm model object, with the following properties:
 #' \describe{
