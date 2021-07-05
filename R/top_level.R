@@ -25,10 +25,12 @@
 #' @references Blostein, Martin & Miljkovic, Tatjana. (2019). On modeling left-truncated loss data using mixtures of distributions. Insurance Mathematics and Economics. 85. 35-46. 10.1016/j.insmatheco.2018.12.001.
 #'
 #' @examples
+#' \donttest{
 #' x <- secura$Loss
 #'
 #' fits_GL <- ltmmCombo(x, G = 2, distributions = c('gamma', 'lognormal'), trunc = 1.2e6)
 #' summary(fits_GL)
+#' }
 #'
 #' @return An ltmmCombo model object, with the following properties:
 #' \describe{

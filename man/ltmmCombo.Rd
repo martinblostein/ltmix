@@ -80,10 +80,12 @@ This function fits a family of finite mixture models using every combination of 
              lognormal, gamma, and weibull distributions.
 }
 \examples{
+\donttest{
 x <- secura$Loss
 
 fits_GL <- ltmmCombo(x, G = 2, distributions = c('gamma', 'lognormal'), trunc = 1.2e6)
 summary(fits_GL)
+}
 
 }
 \references{
