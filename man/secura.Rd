@@ -4,7 +4,9 @@
 \name{secura}
 \alias{secura}
 \title{The Secura Belgian Re Data}
-\format{An object of class \code{data.frame} with 370 rows and 2 columns.}
+\format{
+An object of class \code{data.frame} with 371 rows and 2 columns.
+}
 \usage{
 secura
 }
