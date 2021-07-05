@@ -63,7 +63,7 @@ This function generates a mixture model combining left-truncated lognormal,
              gamma, and weibull distributions
 }
 \examples{
-\dontrun{
+\donttest{
 x <- secura$Loss
 
 fit <- ltmm(x, G = 2, distributions = c('gamma', 'gamma', 'weibull'), trunc = 1.2e6)
