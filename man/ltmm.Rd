@@ -4,10 +4,21 @@
 \alias{ltmm}
 \title{Fit a Left-truncated mixture model (LTMM)}
 \usage{
-ltmm(x, G, distributions, trunc = NULL, EM_init_method = "emEM",
-  EM_starts = 5, init_pars = NULL, init_pi = NULL,
-  init_classes = NULL, one_group_reps = 50, eps = 1e-06,
-  max.it = 1000, verbose = FALSE)
+ltmm(
+  x,
+  G,
+  distributions,
+  trunc = NULL,
+  EM_init_method = "emEM",
+  EM_starts = 5,
+  init_pars = NULL,
+  init_pi = NULL,
+  init_classes = NULL,
+  one_group_reps = 50,
+  eps = 1e-06,
+  max.it = 1000,
+  verbose = FALSE
+)
 }
 \arguments{
 \item{x}{data vector}

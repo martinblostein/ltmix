@@ -4,11 +4,24 @@
 \alias{ltmmCombo}
 \title{Fit a Left-truncated mixture model (LTMM)}
 \usage{
-ltmmCombo(x, G, distributions = c("lognormal", "gamma", "weibull"),
-  trunc = NULL, EM_init_method = "emEM", EM_starts = 5,
-  init_pars = NULL, init_pi = NULL, init_classes = NULL,
-  one_group_reps = 50, eps = 1e-06, max.it = 1000, verbose = FALSE,
-  parallel = FALSE, cores = NULL, save_each_fit = FALSE)
+ltmmCombo(
+  x,
+  G,
+  distributions = c("lognormal", "gamma", "weibull"),
+  trunc = NULL,
+  EM_init_method = "emEM",
+  EM_starts = 5,
+  init_pars = NULL,
+  init_pi = NULL,
+  init_classes = NULL,
+  one_group_reps = 50,
+  eps = 1e-06,
+  max.it = 1000,
+  verbose = FALSE,
+  parallel = FALSE,
+  cores = NULL,
+  save_each_fit = FALSE
+)
 }
 \arguments{
 \item{x}{data vector}

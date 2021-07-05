@@ -3,7 +3,6 @@
 \docType{package}
 \name{ltmix}
 \alias{ltmix}
-\alias{ltmix-package}
 \title{ltmix: Left-Truncated Mixtures of Gamma, Weibull, and Lognormal Distributions}
 \description{
 Mixture modelling of one-dimensional data using combinations of left-truncated Gamma,
