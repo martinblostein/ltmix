@@ -1,7 +1,7 @@
 Package: ltmix
 Type: Package
 Title: Left-Truncated Mixtures of Gamma, Weibull, and Lognormal Distributions
-Version: 0.2.1
+Version: 0.2.2
 Author: Martin Blostein <martin.blostein@gmail.com> and Tatjana Miljkovic <miljkot@miamioh.edu>
 Maintainer: Martin Blostein <martin.blostein@gmail.com>
 Description: Mixture modelling of one-dimensional data using combinations of left-truncated Gamma, Weibull, and Lognormal Distributions. Blostein, Martin & Miljkovic, Tatjana. (2019) <doi:10.1016/j.insmatheco.2018.12.001>. 
