@@ -18,7 +18,8 @@ gamma_pdf <- function(x, pars, as.log=FALSE) {
 weibull_pdf <- function(x, pars, as.log = FALSE) {
     # dweibull sometimes returns NaN instead of zero
     y <- suppressWarnings(dweibull(x, shape = pars[1], scale = pars[2], log=as.log))
-    if (is.nan(y)) if(as.log) -Inf else 0 else y
+    na_replacement <- if(as.log) -Inf else 0
+    ifelse(is.nan(y), na_replacement, y)
 }
 
 # Cumulative density functions ====
