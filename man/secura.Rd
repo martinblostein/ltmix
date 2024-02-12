@@ -15,7 +15,5 @@ secura
 }
 \references{
 Beirlant, J., Goegebeur Y., Segers, J., & Teugels, J. Statistics of extremes : theory and applications. Hoboken, NJ: Wiley, 2004. Print.
-
-\url{https://lstat.kuleuven.be/Wiley/}
 }
 \keyword{datasets}
